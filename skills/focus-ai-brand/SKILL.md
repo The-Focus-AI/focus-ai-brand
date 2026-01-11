@@ -14,19 +14,19 @@ This skill applies Focus.AI brand guidelines to create consistent, on-brand mate
 ### For ALL Brand Work
 First, read the shared foundations:
 ```
-Read: focus-ai-brand/THEFOCUS_DESIGN_SYSTEM.md
+Read: ${CLAUDE_PLUGIN_ROOT}/THEFOCUS_DESIGN_SYSTEM.md
 ```
 
 ### Then, Based on Context
 
 **For Client Materials** (proposals, case studies, client work, service pages):
 ```
-Read: focus-ai-brand/THEFOCUS_CLIENT_DESIGN_SYSTEM.md
+Read: ${CLAUDE_PLUGIN_ROOT}/THEFOCUS_CLIENT_DESIGN_SYSTEM.md
 ```
 
 **For Labs Materials** (research, experiments, blog posts, open source):
 ```
-Read: focus-ai-brand/THEFOCUS_LABS_DESIGN_SYSTEM.md
+Read: ${CLAUDE_PLUGIN_ROOT}/THEFOCUS_LABS_DESIGN_SYSTEM.md
 ```
 
 ## Brand Selection Guide
@@ -62,7 +62,24 @@ Read: focus-ai-brand/THEFOCUS_LABS_DESIGN_SYSTEM.md
 4. **Apply guidelines**: Follow typography, colors, layout, and voice from the loaded files
 5. **Verify**: Check against the quality checklist in the design system files
 
+## Commands
+
+### `/report` - Generate Printable Report
+
+Convert a markdown file to a styled HTML report for PDF printing:
+
+```
+/report file:./my-document.md style:labs
+/report file:./proposal.md style:client
+```
+
+- **file**: Path to the markdown file (required)
+- **style**: Brand style - `labs` (default) or `client`
+
+The command generates a self-contained HTML file, opens it in your browser, and you can print to PDF with Cmd+P.
+
 ## Assets
 
-- `assets/fonts/` — Font files (use Inter + Courier Prime for new work)
-- `assets/examples/` — HTML implementation examples
+- `${CLAUDE_PLUGIN_ROOT}/assets/fonts/` — Font files (use Inter + Courier Prime for new work)
+- `${CLAUDE_PLUGIN_ROOT}/assets/examples/` — HTML implementation examples
+- `${CLAUDE_PLUGIN_ROOT}/templates/` — HTML report templates (client-report.html, labs-report.html)
