@@ -11,19 +11,7 @@ This plugin provides comprehensive brand guidelines for two Focus.AI sub-brands:
 
 ## Installation
 
-### Via Focus Marketplace (Recommended)
-
-```bash
-# Add the Focus marketplace (if not already added)
-/plugin marketplace add The-Focus-AI/claude-marketplace
-
-# Install the plugin
-/plugin install focus-ai-brand@focus-marketplace
-```
-
-Then restart Claude Code.
-
-### Manual Installation
+Install this plugin in Claude Code by adding it to your plugins directory:
 
 ```bash
 # Clone the repository

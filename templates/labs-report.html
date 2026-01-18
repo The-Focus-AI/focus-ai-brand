@@ -314,10 +314,19 @@
       letter-spacing: 0.2em;
     }
 
+    /* Page break control classes */
+    .page-break {
+      page-break-before: always;
+    }
+
+    .keep-together {
+      page-break-inside: avoid;
+    }
+
     /* Print Styles */
     @media print {
       body {
-        background: white;
+        background: white !important;
         padding: 0;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
@@ -326,21 +335,81 @@
       .report {
         max-width: 100%;
         margin: 0;
-        padding: 0.75in;
+        padding: 0.5in;
         border: none;
         box-shadow: none;
+        background: white !important;
       }
 
-      h1, h2, h3, h4, h5, h6 {
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 18px;
+        margin-top: 1.5rem;
         page-break-after: avoid;
       }
 
-      pre, blockquote, table, img {
+      h3, h4, h5, h6 {
+        page-break-after: avoid;
+      }
+
+      p {
+        orphans: 3;
+        widows: 3;
+      }
+
+      pre, blockquote, table {
         page-break-inside: avoid;
       }
 
       img {
         filter: none;
+        page-break-inside: avoid;
+        max-height: 4.5in;
+      }
+
+      ul, ol {
+        page-break-inside: avoid;
+      }
+
+      hr {
+        page-break-after: avoid;
+      }
+
+      .page-break {
+        page-break-before: always;
+      }
+
+      .keep-together {
+        page-break-inside: avoid;
+      }
+
+      /* White background alternatives for colored elements */
+      code {
+        background: #eee !important;
+        color: #1a1a1a !important;
+      }
+
+      pre {
+        background: #f5f5f5 !important;
+        color: #1a1a1a !important;
+        border: 1px solid #ccc !important;
+      }
+
+      pre code {
+        background: transparent !important;
+        color: #1a1a1a !important;
+      }
+
+      th {
+        background: #333 !important;
+        color: #fff !important;
+      }
+
+      tr:nth-child(even) td {
+        background: #f5f5f5 !important;
       }
 
       a {
@@ -357,7 +426,7 @@
     }
 
     @page {
-      margin: 0.5in;
+      margin: 0.6in;
       size: letter;
     }
   </style>

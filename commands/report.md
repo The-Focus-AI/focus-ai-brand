@@ -86,31 +86,60 @@ The generated HTML should follow this structure:
 
 ## Print Optimization
 
-Include these print-specific styles:
+The template includes comprehensive print styles for clean PDF output:
+
+### White Background for Print
+When printing, the background switches to white (not cream) for better compatibility:
 
 ```css
 @media print {
   body {
+    background: white !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-
   .report {
-    max-width: 100%;
-    margin: 0;
-    padding: 1in;
+    background: white !important;
     box-shadow: none;
+    border: none;
+    padding: 0.5in;
   }
-
-  h1, h2, h3, h4 {
-    page-break-after: avoid;
-  }
-
-  pre, blockquote, table {
-    page-break-inside: avoid;
-  }
+  code { background: #eee !important; }
+  tr:nth-child(even) td { background: #f5f5f5 !important; }
 }
 ```
+
+### Page Break Controls
+Use these CSS classes to control page breaks:
+
+- `.page-break` - Force a page break before the element
+- `.keep-together` - Prevent the element from being split across pages
+
+Example usage in the generated HTML:
+```html
+<!-- Force new page before a section -->
+<div class="page-break"></div>
+<h2>New Section</h2>
+
+<!-- Keep a table or list together -->
+<div class="keep-together">
+  <h3>Important Table</h3>
+  <table>...</table>
+</div>
+```
+
+### Automatic Page Break Avoidance
+The template automatically avoids breaking:
+- After headings (h1-h6)
+- Inside tables, code blocks, blockquotes
+- Inside lists (ul, ol)
+- Inside images (with max-height: 4.5in)
+
+### Orphan/Widow Control
+Paragraphs require at least 3 lines at page top/bottom to prevent awkward single-line breaks.
+
+### Image Sizing
+Images are limited to max-height: 4.5in in print to prevent overflow. The grayscale filter is removed for print.
 
 ## Example Usage
 
