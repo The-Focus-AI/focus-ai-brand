@@ -476,6 +476,105 @@ For tool interoperability:
 
 ---
 
+## Visual Generation Style System
+
+All Labs brand generated imagery uses a **Bell Labs / Tufte / RAND Corporation** aesthetic — clean data visualization, information-dense diagrams, and retro-technical illustration. This is distinct from the Client brand's Renaissance style.
+
+> **Note:** This visual style is exclusively for Labs. Client uses Renaissance drafting (da Vinci, Dürer, etc.) instead. See [THEFOCUS_CLIENT_DESIGN_SYSTEM.md](./THEFOCUS_CLIENT_DESIGN_SYSTEM.md).
+
+### The Four Approved Styles
+
+#### 1. Tufte Data Visualization — PRIMARY / DEFAULT
+
+Use for: Charts, data comparisons, statistical displays, analytical graphics. **This is the default** — when in doubt, use this.
+
+**Prompt template:**
+```
+[Your subject/data] presented as a clean Edward Tufte style data visualization.
+Minimal ink-to-data ratio. No chartjunk, no grid lines, no 3D effects. Small
+multiples where appropriate. Thin precise lines, subtle gray tones, data labels
+directly on the graphic (no legends). Warm off-white background (#f3f2ea).
+Serif annotations in a restrained style. High data density, maximum information
+with minimum ink. Print-quality statistical graphic.
+```
+
+**Key visual elements:** Small multiples, sparklines, direct labeling, thin rules, minimal decoration, high data-to-ink ratio, marginal annotations.
+
+#### 2. Bell Labs Technical Diagram
+
+Use for: System architecture, network diagrams, technical documentation, research figures. Best for showing how systems work internally.
+
+**Prompt template:**
+```
+[Your subject/system] as a 1970s Bell Labs technical diagram. Clean black ink on
+white paper. Simple geometric shapes — rectangles, circles, arrows — connected by
+precise straight lines. Monospaced Courier labels. No decorative elements. Blueprint
+precision with a human touch. Dot matrix or photostat reproduction quality. Slight
+warm paper tint. The style of technical memoranda from Bell Telephone Laboratories.
+```
+
+**Key visual elements:** Simple geometric primitives, straight connecting lines, Courier-style labels, numbered figure captions, minimal shading (stipple if any), clean white space.
+
+#### 3. RAND Report Infographic
+
+Use for: Policy-style diagrams, comparison matrices, decision frameworks, strategic overviews. Best for synthesizing complex findings into clear visual arguments.
+
+**Prompt template:**
+```
+[Your subject/analysis] as a RAND Corporation research report infographic from the
+1960s. Clean modernist graphic design. Sans-serif type in a strict grid. Flat color
+blocks in muted tones — navy blue (#0055aa), warm gray, off-white, with red (#d93025)
+for emphasis. No gradients, no shadows, no decorative elements. Information-dense but
+highly organized. Government report aesthetic with clear hierarchy. Photostat print quality.
+```
+
+**Key visual elements:** Grid-based layout, flat color blocks, numbered sections, clear hierarchy, comparison tables, decision trees, muted institutional palette.
+
+#### 4. Retro Computing / Terminal
+
+Use for: Code-related visuals, developer tools, CLI screenshots, hacker/builder culture content. **Use sparingly** — this is an accent style, not a default.
+
+**Prompt template:**
+```
+[Your subject] displayed on a vintage computer terminal. Phosphor green text (#00ff41)
+on a dark CRT screen. Visible scanlines and slight screen curvature. Monospaced font
+only. Simple ASCII-art style diagrams if needed. Subtle screen glow effect. 1980s
+computer terminal aesthetic. No modern UI chrome, no color beyond green-on-black
+(or amber-on-black). The warmth of old technology.
+```
+
+**Key visual elements:** CRT scanlines, phosphor glow, monospaced text, ASCII art, dark background, minimal color (green or amber only).
+
+### Style Selection Guide
+
+| Use Case | Recommended Style |
+|----------|-------------------|
+| Default / general Labs imagery | Tufte Data Visualization |
+| Data analysis or comparison | Tufte Data Visualization |
+| System architecture | Bell Labs Technical Diagram |
+| Research report figure | Tufte or Bell Labs |
+| Strategic framework | RAND Report Infographic |
+| Decision matrix or comparison | RAND Report Infographic |
+| Conference analysis graphic | Tufte or RAND |
+| Developer tool / CLI visual | Retro Computing / Terminal |
+| Code-related content | Retro Computing / Terminal |
+| Blog post header | Tufte or Bell Labs |
+| Report cover | RAND Report Infographic |
+| Open source project graphic | Bell Labs Technical Diagram |
+
+### Visual Principles
+
+All Labs imagery shares these characteristics:
+- **Maximum information, minimum ink** — Tufte's core principle
+- **No chartjunk** — no 3D effects, no gradients, no decorative elements
+- **Warm paper tones** — off-white backgrounds, never pure white
+- **Monospaced labels** — Courier Prime for all annotations and metadata
+- **Restrained color** — Rand-Blue and Alert-Red only, with grays
+- **Print quality** — should look good photocopied or printed in a research report
+- **No Renaissance, no hand-drawn, no parchment** — that's Client territory
+
+---
+
 ## Quality Checklist
 
 Before shipping Labs content:

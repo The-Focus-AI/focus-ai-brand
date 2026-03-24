@@ -410,6 +410,134 @@ ease
 
 ---
 
+## Renaissance Visual Style System
+
+All Client brand generated imagery uses a **Renaissance drafting aesthetic** — inspired by Leonardo da Vinci's technical notebooks, Albrecht Dürer's engravings, and Renaissance-era scientific illustration. This connects to the brand's core values: precision, clarity, the intersection of art and science.
+
+> **Note:** This visual style is exclusively for Client brand. Labs uses a Bell Labs / Tufte aesthetic instead. See [THEFOCUS_LABS_DESIGN_SYSTEM.md](./THEFOCUS_LABS_DESIGN_SYSTEM.md).
+
+### The Five Approved Styles
+
+When generating images with nano-banana (or any image generation tool) for Client work, use one of these five styles.
+
+#### 1. Da Vinci Diagram — PRIMARY / DEFAULT
+
+Use for: System architecture, data flows, technical explainers, general-purpose brand imagery. **This is the default** — when in doubt, use this.
+
+**Prompt template:**
+```
+[Your subject/concept] drawn in the style of Leonardo da Vinci's technical notebooks.
+Sepia ink on aged parchment paper. Hand-drawn construction lines, annotations in
+italic script along the margins, cross-hatching for shadows. [Specific labels/callouts].
+Red chalk accent marks on key intersection points. Renaissance engineering drawing
+aesthetic, warm brown tones, visible paper grain texture.
+```
+
+**Key visual elements:** Interconnected nodes, Latin labels, construction geometry, gear illustrations, red chalk accents, folio-style layout.
+
+#### 2. Dürer Engraving
+
+Use for: Dense knowledge maps, comprehensive overviews, "big picture" or encyclopedic visuals. Best when showing the full scope of a domain or system of knowledge.
+
+**Prompt template:**
+```
+[Your subject/concept] in the style of Albrecht Dürer's engravings. Extremely fine
+crosshatched lines creating rich tonal depth. Woodcut and copper engraving aesthetic.
+[Central element] radiates connections to surrounding elements. Meticulous detail,
+black ink on off-white paper. Northern Renaissance printmaking style. Dense parallel
+hatching lines for shadow. Gothic letterforms for labels.
+```
+
+**Key visual elements:** Fine crosshatching, woodcut texture, central radiating composition, figures and vignettes in surrounding panels, Gothic letterforms, dense detail.
+
+#### 3. Celestial Map
+
+Use for: Data architecture layers, hierarchical systems, infrastructure diagrams. Best for showing concentric layers or orbital relationships between components.
+
+**Prompt template:**
+```
+[Your subject/concept] drawn in the style of Renaissance astronomical charts.
+Copernicus and Kepler inspired orbital diagrams. Concentric circles showing different
+layers of [your system/architecture]. Constellation-like connection lines between nodes.
+Aged parchment with compass rose. Celestial cartography aesthetic, copper engraving
+style with fine lines. Stars as [endpoints], orbits as [flows/relationships].
+```
+
+**Key visual elements:** Concentric orbital rings, compass rose, constellation connections, planetary nodes, star field, dimension labels, warm parchment with dark ink.
+
+#### 4. Cartography
+
+Use for: Network topology, connection/route maps, ecosystem visuals, marketplace diagrams. Best when showing how things connect across a landscape or territory.
+
+**Prompt template:**
+```
+[Your subject/concept] in the style of Renaissance cartography and portolan charts.
+A network map showing [routes/connections] like trade routes between ports. Compass
+roses at intersections. Rhumb lines connecting nodes. Decorative cartouche frame.
+Wind heads in corners. Aged vellum texture. Hand-drawn coastlines as [boundaries].
+Sea monsters in margins representing [noise/chaos/obstacles]. Warm sepia and blue ink.
+```
+
+**Key visual elements:** Compass roses, rhumb lines, decorative cartouche, wind heads, sea monsters, port/harbor nodes, coastline boundaries, trade route connections.
+
+#### 5. Distillation Machine
+
+Use for: Process flows, transformation pipelines, ETL diagrams, and especially the core "distill the signal from the noise" brand narrative. Best for showing input → transformation → output.
+
+**Prompt template:**
+```
+Leonardo da Vinci style technical drawing of a machine that [transforms/processes
+your concept]. Intricate mechanical apparatus with gears, tubes, and chambers.
+[Raw input] enters from the left as chaotic ink splatters and exits on the right
+as clean organized lines. Pen and ink on aged paper with red chalk annotations.
+Cross-hatching shading technique. Dimension lines and measurement marks. Small
+handwritten notes in margins. Renaissance engineering patent drawing aesthetic.
+```
+
+**Key visual elements:** Mechanical apparatus, gears and tubes, alembics and chambers, chaotic input vs clean output, dimension/measurement lines, marginal annotations, fire/furnace elements.
+
+### Style Selection Guide
+
+| Use Case | Recommended Style |
+|----------|-------------------|
+| Default / general brand imagery | Da Vinci Diagram |
+| System architecture overview | Da Vinci Diagram |
+| Data flow or pipeline | Da Vinci Diagram or Distillation Machine |
+| Knowledge domain overview | Dürer Engraving |
+| Encyclopedic / comprehensive visual | Dürer Engraving |
+| Layered architecture (infra, stack) | Celestial Map |
+| Hierarchical / nested systems | Celestial Map |
+| Network / connection map | Cartography |
+| Ecosystem or marketplace visual | Cartography |
+| Transformation / ETL process | Distillation Machine |
+| "Distill the signal" brand story | Distillation Machine |
+| Hero image / landing page | Da Vinci Diagram or Celestial Map |
+| Blog post header | Any (match to content) |
+| Report cover | Da Vinci Diagram or Dürer Engraving |
+| Social media graphic | Da Vinci Diagram (most recognizable) |
+| Client proposal | Da Vinci Diagram or Distillation Machine |
+| Case study visual | Any (match to subject) |
+
+### Visual Principles
+
+All five styles share these characteristics:
+- **Warm parchment/paper backgrounds** — never pure white or modern gradients
+- **Sepia/brown ink tones** with red chalk or sanguine accents
+- **Hand-drawn quality** — construction lines, cross-hatching, visible draftsmanship
+- **Annotation and labeling** — marginalia, dimension marks, Latin or technical labels
+- **No photography, no modern UI, no flat design** — always the Renaissance drafting aesthetic
+
+### Reference Images
+
+Generated examples are in `output/`:
+- `output/renaissance-01-diagram.png` — Da Vinci Diagram
+- `output/renaissance-07-durer.png` — Dürer Engraving
+- `output/renaissance-08-celestial.png` — Celestial Map
+- `output/renaissance-10-cartography.png` — Cartography
+- `output/renaissance-05-distillation-machine.png` — Distillation Machine
+
+---
+
 ## Quality Checklist
 
 Before shipping client-facing work:
@@ -426,6 +554,7 @@ Before shipping client-facing work:
 - [ ] Voice is confident and professional, not salesy
 - [ ] No buzzwords, no hyperbole
 - [ ] Mobile responsive
+- [ ] Generated imagery uses Renaissance visual styles (not Bell Labs/Tufte)
 
 ---
 

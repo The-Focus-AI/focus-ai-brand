@@ -280,6 +280,17 @@ Before shipping any Focus.AI branded material:
 
 ---
 
+## Visual Style Systems
+
+Each brand has its own distinct visual imagery approach for generated graphics. See the brand-specific documents for full prompt templates and use-case guides:
+
+- **Client brand** → Renaissance drafting aesthetic (da Vinci, Dürer, celestial maps, cartography). See [THEFOCUS_CLIENT_DESIGN_SYSTEM.md](./THEFOCUS_CLIENT_DESIGN_SYSTEM.md).
+- **Labs brand** → Bell Labs / Tufte / RAND Corporation data visualization aesthetic. See [THEFOCUS_LABS_DESIGN_SYSTEM.md](./THEFOCUS_LABS_DESIGN_SYSTEM.md).
+
+**Never mix these.** Renaissance imagery is exclusively Client. Tufte/Bell Labs imagery is exclusively Labs.
+
+---
+
 ## File Reference
 
 | Document | Purpose |
