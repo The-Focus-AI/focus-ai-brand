@@ -23,7 +23,7 @@ The Focus.AI
 
 Both brands share:
 - Core philosophy: "Distill the signal from the noise"
-- Typography: Inter (sans) + Courier Prime (mono)
+- Typography: Source Serif 4 (display) + Inter (sans) + Courier Prime (mono)
 - Foundation principles: Clarity, precision, warmth
 - Quality standards: Accessible, well-crafted, intentional
 
@@ -63,13 +63,23 @@ Both brands use the same font families, applied differently based on context.
 
 | Family | Stack | Usage |
 |--------|-------|-------|
-| **Sans** | Inter, system-ui, sans-serif | Headings, body text, UI |
+| **Display** | Source Serif 4, Georgia, Times New Roman, serif | Cover titles, H1 in paged reports, pull quotes |
+| **Sans** | Inter, system-ui, sans-serif | Section headings, body text, UI |
 | **Mono** | Courier Prime, monospace | Metadata, labels, code, technical content |
 
 ### Why These Fonts
 
+- **Source Serif 4**: Bold serif for display moments — cover pages, main titles, pull quotes. Weight 900 provides impact; italic for quotations. Never use for body text or section headers (h2-h4). Only appears in paged report templates.
 - **Inter**: Highly legible, excellent at all sizes, professional without being cold, widely available
 - **Courier Prime**: Designed for readability (unlike most monospace fonts), warmth of a typewriter, signals "technical document"
+
+### Display Font Rules
+
+Source Serif 4 is reserved for high-impact typographic moments:
+- **Use**: Cover page titles, H1 headings (paged reports only), pull quotes, stat numbers
+- **Don't use**: Body text, H2-H4 headings, labels, navigation, buttons, metadata
+- **Weights**: 900 (Black) for titles, 400 italic for pull quotes
+- **Sizing**: 36-48px+ for titles, 24px+ for pull quotes, 48px for stat numbers
 
 ### Type Scale (Shared Base)
 
@@ -236,6 +246,7 @@ theme: {
       text: 'var(--color-text)',       // Ink or Void
     },
     fontFamily: {
+      display: ['Source Serif 4', 'Georgia', 'Times New Roman', 'serif'],
       sans: ['Inter', 'system-ui', 'sans-serif'],
       mono: ['Courier Prime', 'monospace'],
     },

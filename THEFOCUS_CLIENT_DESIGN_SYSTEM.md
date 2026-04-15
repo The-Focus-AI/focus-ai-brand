@@ -70,14 +70,17 @@ For section variety while maintaining warmth:
 
 | Element | Font | Size | Weight | Other |
 |---------|------|------|--------|-------|
-| **H1** | Inter | 48-88px | 700 | Letter-spacing: -0.045em |
-| **H2** | Inter | 36-48px | 700 | Letter-spacing: -0.03em |
-| **H3** | Inter | 24-30px | 700 | Letter-spacing: -0.02em |
-| **H4** | Inter | 20px | 700 | Letter-spacing: -0.01em |
-| **Body** | Inter | 17px | 500 | Line-height: 1.6 |
+| **Cover Title** | Source Serif 4 | 48px | 900 | Paged reports only |
+| **H1** | Source Serif 4 (paged) / Inter (standard) | 36-48px | 900/700 | Letter-spacing: -0.02em / -0.045em |
+| **H2** | Inter | 22-30px | 700 | Letter-spacing: -0.03em |
+| **H3** | Inter | 17-20px | 700 | Letter-spacing: -0.02em |
+| **H4** | Inter | 15-20px | 700 | Letter-spacing: -0.01em |
+| **Body** | Inter | 15-17px | 500 | Line-height: 1.6 |
 | **Large Body** | Inter | 20px | 500 | Line-height: 1.5 |
 | **Small** | Inter | 14px | 500 | Line-height: 1.5 |
-| **Label** | Courier Prime | 12px | 500 | Uppercase, letter-spacing: 0.12em |
+| **Label** | Courier Prime | 10-12px | 500 | Uppercase, letter-spacing: 0.12em |
+| **Pull Quote** | Source Serif 4 | 24px | 400 italic | Paged reports only |
+| **Stat Number** | Source Serif 4 | 48px | 900 | Paged reports only |
 
 ### Mobile Typography
 
@@ -284,6 +287,57 @@ Midpoint underline animation:
   background: rgba(14, 59, 70, 0.3);
 }
 ```
+
+---
+
+## Paged Report Component Library
+
+The paged report templates (`client-report-paged.html`) include a component library for rich PDF layouts. These classes are available when using paged.js templates via `/report` with `paged:true` or `output:path.pdf`.
+
+### Layout Components
+
+| Component | Class | Description |
+|-----------|-------|-------------|
+| Two-column | `.two-col` | Equal 2-col grid, break-inside: avoid |
+| Wide left | `.two-col-wide-left` | 3fr / 2fr asymmetric grid |
+| Wide right | `.two-col-wide-right` | 2fr / 3fr asymmetric grid |
+
+### Card Components
+
+| Component | Class | Description |
+|-----------|-------|-------------|
+| Dark card | `.card-dark` | Petrol bg, white text, rounded corners |
+| Light card | `.card-light` | White bg, petrol left accent border |
+| Accent card | `.card-accent` | White bg, vermilion left accent border |
+
+### Data Display
+
+| Component | Class | Description |
+|-----------|-------|-------------|
+| Stat number | `.stat-number` | 48px Source Serif 4, petrol color |
+| Stat label | `.stat-label` | 11px Courier Prime, vermilion, uppercase |
+| Stat grid | `.stat-grid` | 3-column centered stat layout |
+
+### Callouts
+
+| Component | Class | Description |
+|-----------|-------|-------------|
+| Callout | `.callout` | Light bg with subtle border |
+| Key callout | `.callout-key` | Petrol bg, white text |
+
+### Sequential
+
+| Component | Class | Description |
+|-----------|-------|-------------|
+| Process flow | `.process-flow` | Horizontal steps with arrows |
+| Pull quote | `.pull-quote` | Source Serif 4 italic, vermilion border |
+
+### Page Control
+
+| Component | Class | Description |
+|-----------|-------|-------------|
+| Page break | `.page-break` | Force page break before element |
+| Keep together | `.keep-together` | Prevent split across pages |
 
 ---
 

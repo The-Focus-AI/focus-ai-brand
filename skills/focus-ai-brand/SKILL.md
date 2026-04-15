@@ -64,22 +64,53 @@ Read: ${CLAUDE_PLUGIN_ROOT}/THEFOCUS_LABS_DESIGN_SYSTEM.md
 
 ## Commands
 
-### `/report` - Generate Printable Report
+### `/report` - Generate Report / PDF
 
-Convert a markdown file to a styled HTML report for PDF printing:
+Convert a markdown file to a styled HTML report. Two modes:
 
 ```
+# Open in browser for manual Cmd+P printing
 /report file:./my-document.md style:labs
-/report file:./proposal.md style:client
+
+# Generate PDF directly via chrome-driver (uses paged.js template)
+/report file:./proposal.md style:client output:./proposal.pdf
+
+# Force paged template in browser
+/report file:./analysis.md style:client paged:true
 ```
 
+**Arguments:**
 - **file**: Path to the markdown file (required)
-- **style**: Brand style - `labs` (default) or `client`
+- **style**: `client` or `labs` (default: labs)
+- **output**: PDF output path — when specified, generates PDF directly and uses paged template
+- **paged**: `auto` (default) / `true` / `false` — controls paged.js template selection
 
-The command generates a self-contained HTML file, opens it in your browser, and you can print to PDF with Cmd+P.
+**Paged templates** provide:
+- Running "THEFOCUS.AI" header on every page (except cover)
+- Auto page numbers (01, 02, ...) in Courier Prime
+- Source Serif 4 display font for titles and cover pages
+- Cream background preserved in PDF
+- Smart page breaks: each h2 section starts on a new page
+- Component library for rich layouts (cards, stat grids, process flows, etc.)
+
+**Standard templates** are simpler — no running headers, no paged.js, designed for Cmd+P browser printing.
+
+## Typography
+
+Three font families:
+
+| Family | Font | Usage |
+|--------|------|-------|
+| **Display** | Source Serif 4 | Cover titles, H1 (paged reports), pull quotes, stat numbers |
+| **Sans** | Inter | Section headings (h2-h4), body text, UI |
+| **Mono** | Courier Prime | Labels, metadata, code, page numbers |
+
+Source Serif 4 is **paged reports only** — standard templates use Inter for everything.
 
 ## Assets
 
-- `${CLAUDE_PLUGIN_ROOT}/assets/fonts/` — Font files (use Inter + Courier Prime for new work)
+- `${CLAUDE_PLUGIN_ROOT}/templates/` — HTML report templates
+  - `client-report.html` / `labs-report.html` — Standard (browser printing)
+  - `client-report-paged.html` / `labs-report-paged.html` — Paged.js (PDF generation)
+- `${CLAUDE_PLUGIN_ROOT}/assets/fonts/` — Font files
 - `${CLAUDE_PLUGIN_ROOT}/assets/examples/` — HTML implementation examples
-- `${CLAUDE_PLUGIN_ROOT}/templates/` — HTML report templates (client-report.html, labs-report.html)
