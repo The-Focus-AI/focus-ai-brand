@@ -3,114 +3,173 @@ name: focus-ai-brand
 description: Apply Focus.AI brand guidelines to documents, presentations, websites, and other materials. Supports two sub-brands - Focus.AI Client (services, proposals, client work) and Focus.AI Labs (research, experiments, public content). Use when creating branded materials, applying visual identity, or generating content that needs to follow Focus.AI style. Trigger on "focus.ai style", "focus brand", "labs style", or requests for branded Focus.AI materials.
 ---
 
-# Focus.AI Brand System
+# Focus.AI Design System
 
-This skill applies Focus.AI brand guidelines to create consistent, on-brand materials across two sub-brands.
+A design system that combines Swiss International Style structural rigor with Focus.AI's brand identity. Warm paper backgrounds, editorial typography, rigorous grid, generous whitespace, opacity-based hierarchy, and restrained accent color.
 
-## Required Reading
+## Six Principles
 
-**IMPORTANT**: Before creating any branded material, you MUST read the appropriate design system files:
+1. **Grid first.** Every layout lives on a 12-column grid (editorial pages use a 3-column asymmetric variant). 8px base unit for spacing.
+2. **Mobile first, always.** Design for 320px, then expand. Use `sm:`, `md:`, `lg:` prefixes systematically.
+3. **Whitespace is structure.** Generous padding and margins are the design, not waste.
+4. **Opacity creates hierarchy.** Never introduce a second text color to indicate weight. Use opacity on the primary text color.
+5. **Two accents maximum, used sparingly.** Primary accent for CTAs and navigation. Secondary accent for decorative highlights only.
+6. **Clarity over decoration.** Every element earns its place. If it doesn't help the reader focus on what matters, remove it.
 
-### For ALL Brand Work
-First, read the shared foundations:
+---
+
+## Brand Architecture
+
 ```
-Read: ${CLAUDE_PLUGIN_ROOT}/THEFOCUS_DESIGN_SYSTEM.md
+The Focus.AI
+├── Focus.AI (Client)     → Services, products, client-facing work
+│   Aesthetic: Editorial magazine, polished, confident
+│   Palette: Paper, Ink, Petrol, Vermilion
+│
+└── Focus.AI Labs         → Research, experiments, public content
+    Aesthetic: Bell Labs research report, curious, generous
+    Palette: Paper, Void, Rand-Blue, Alert-Red
 ```
-
-### Then, Based on Context
-
-**For Client Materials** (proposals, case studies, client work, service pages):
-```
-Read: ${CLAUDE_PLUGIN_ROOT}/THEFOCUS_CLIENT_DESIGN_SYSTEM.md
-```
-
-**For Labs Materials** (research, experiments, blog posts, open source):
-```
-Read: ${CLAUDE_PLUGIN_ROOT}/THEFOCUS_LABS_DESIGN_SYSTEM.md
-```
-
-## Brand Selection Guide
-
-| Context | Brand | Design System File |
-|---------|-------|-------------------|
-| Client proposals | Client | THEFOCUS_CLIENT_DESIGN_SYSTEM.md |
-| Case studies | Client | THEFOCUS_CLIENT_DESIGN_SYSTEM.md |
-| Service pages | Client | THEFOCUS_CLIENT_DESIGN_SYSTEM.md |
-| Product marketing | Client | THEFOCUS_CLIENT_DESIGN_SYSTEM.md |
-| Conference analysis | Labs | THEFOCUS_LABS_DESIGN_SYSTEM.md |
-| Research reports | Labs | THEFOCUS_LABS_DESIGN_SYSTEM.md |
-| Experiments | Labs | THEFOCUS_LABS_DESIGN_SYSTEM.md |
-| Technical blog posts | Labs | THEFOCUS_LABS_DESIGN_SYSTEM.md |
-| Open source projects | Labs | THEFOCUS_LABS_DESIGN_SYSTEM.md |
 
 **Rule of thumb**: Client work or selling services → Client brand. Sharing learnings or exploring → Labs brand.
 
-## Quick Difference Summary
+---
 
-| Aspect | Client | Labs |
-|--------|--------|------|
-| **Aesthetic** | Magazine / editorial | Bell Labs / RAND Corporation |
-| **Primary accent** | Petrol `#0e3b46` | Rand-Blue `#0055aa` |
-| **Secondary accent** | Vermilion `#c3471d` | Alert-Red `#d93025` |
-| **Voice** | Confident, professional, clear | Curious, wry, generous |
+## Quick Reference
 
-## Workflow
+### Typography
 
-1. **Determine brand**: Client work → Client brand. Research/sharing → Labs brand.
-2. **Read foundations**: Load `THEFOCUS_DESIGN_SYSTEM.md`
-3. **Read brand specifics**: Load the appropriate brand file (Client or Labs)
-4. **Apply guidelines**: Follow typography, colors, layout, and voice from the loaded files
-5. **Verify**: Check against the quality checklist in the design system files
+| Family      | Font           | Usage                                                       |
+| ----------- | -------------- | ----------------------------------------------------------- |
+| **Display** | Source Serif 4 | Cover titles, H1 (paged reports), pull quotes, stat numbers |
+| **Sans**    | Inter          | Section headings (h2–h4), body text, UI, navigation         |
+| **Mono**    | Courier Prime  | Labels, metadata, code, page numbers                        |
+
+**Weight rules:**
+
+- Headings: `font-black` (900) or `font-bold` (700) with negative letter-spacing
+- Body: `font-normal` (400) or `font-medium` (500), line-height 1.6
+- Labels: `font-mono`, uppercase, wide letter-spacing
+
+### Colors at a Glance
+
+| Role             | Client              | Labs                 |
+| ---------------- | ------------------- | -------------------- |
+| Background       | Paper `#faf9f6`     | Paper `#f3f2ea`      |
+| Primary text     | Ink `#161616`       | Void `#1a1a1a`       |
+| Secondary text   | `ink/70` opacity    | `void/70` opacity    |
+| Tertiary text    | `ink/40` opacity    | `void/40` opacity    |
+| Primary accent   | Petrol `#0e3b46`    | Rand-Blue `#0055aa`  |
+| Secondary accent | Vermilion `#c3471d` | Alert-Red `#d93025`  |
+| Border           | `#d4d3cf`           | `rgba(26,26,26,0.2)` |
+
+**Never use pure `#ffffff` or `#000000` for backgrounds.**
+
+### Opacity Hierarchy (Core Rule)
+
+Reduce opacity to de-emphasize — never change the hue:
+
+```
+Full:     text-[ink]           → primary content
+Softer:   text-[ink]/70        → secondary labels, supporting text
+Quiet:    text-[ink]/40        → captions, metadata
+Ghosted:  text-[ink]/20        → disabled, placeholder
+```
+
+### Spacing
+
+Base unit: 4px. Standard gaps at 8px multiples.
+
+| Context | Value    | Usage                            |
+| ------- | -------- | -------------------------------- |
+| Tight   | 8px      | Inline gaps, icon spacing        |
+| Default | 16px     | Component internal spacing       |
+| Between | 32px     | Between components               |
+| Section | 48–64px  | Between major sections (mobile)  |
+| Section | 96–128px | Between major sections (desktop) |
+
+### Layout
+
+Two layout modes:
+
+1. **12-column grid** — General purpose, Tailwind `grid grid-cols-12 gap-8`
+2. **Asymmetric editorial** — `[140px label] [1fr content, max 740px] [200px marginalia]`
+
+Body text max width: `60ch`. Never wider.
+
+---
+
+## Brand Selection Guide
+
+| Context                                       | Brand      |
+| --------------------------------------------- | ---------- |
+| Client proposals, case studies, service pages | **Client** |
+| Product marketing, landing pages              | **Client** |
+| Conference analysis, research reports         | **Labs**   |
+| Experiments, technical blog posts             | **Labs**   |
+| Open source projects                          | **Labs**   |
+
+---
 
 ## Commands
 
-### `/report` - Generate Report / PDF
+### `/report` — Generate Report / PDF
 
-Convert a markdown file to a styled HTML report. Two modes:
+Convert markdown to a styled HTML report with smart page breaks.
 
 ```
-# Open in browser for manual Cmd+P printing
+# Open in browser (Cmd+P to print)
 /report file:./my-document.md style:labs
 
-# Generate PDF directly via chrome-driver (uses paged.js template)
+# Generate PDF directly via chrome-driver
 /report file:./proposal.md style:client output:./proposal.pdf
 
 # Force paged template in browser
 /report file:./analysis.md style:client paged:true
 ```
 
-**Arguments:**
-- **file**: Path to the markdown file (required)
-- **style**: `client` or `labs` (default: labs)
-- **output**: PDF output path — when specified, generates PDF directly and uses paged template
-- **paged**: `auto` (default) / `true` / `false` — controls paged.js template selection
+See `references/print.md` for full details on the paged.js system, smart page-break rules, and component library.
 
-**Paged templates** provide:
-- Running "THEFOCUS.AI" header on every page (except cover)
-- Auto page numbers (01, 02, ...) in Courier Prime
-- Source Serif 4 display font for titles and cover pages
-- Cream background preserved in PDF
-- Smart page breaks: each h2 section starts on a new page
-- Component library for rich layouts (cards, stat grids, process flows, etc.)
+### `/deck` — Generate Presentation (.pptx)
 
-**Standard templates** are simpler — no running headers, no paged.js, designed for Cmd+P browser printing.
+Convert markdown to a branded PowerPoint presentation.
 
-## Typography
+```
+/deck file:./content.md style:client output:./presentation.pptx
+/deck file:./research.md style:labs output:./research-deck.pptx
+```
 
-Three font families:
+See `references/presentations.md` for slide masters, component patterns, and design rules.
 
-| Family | Font | Usage |
-|--------|------|-------|
-| **Display** | Source Serif 4 | Cover titles, H1 (paged reports), pull quotes, stat numbers |
-| **Sans** | Inter | Section headings (h2-h4), body text, UI |
-| **Mono** | Courier Prime | Labels, metadata, code, page numbers |
+---
 
-Source Serif 4 is **paged reports only** — standard templates use Inter for everything.
+## When to Read Reference Files
 
-## Assets
+| Task                                                            | File                            |
+| --------------------------------------------------------------- | ------------------------------- |
+| Full color tokens, type scale, CSS properties, dark mode        | `references/design-system.md`   |
+| 12-col grid, asymmetric layout, section spacing, decoration     | `references/grid-and-layout.md` |
+| Mobile-first breakpoints, fluid type, responsive checklist      | `references/responsive.md`      |
+| Tailwind component patterns: buttons, cards, nav, forms         | `references/components.md`      |
+| Paste-ready Tailwind v3/v4 config, Google Fonts link tags       | `references/tailwind-config.md` |
+| `/report` command, paged.js, smart page breaks, PDF workflow    | `references/print.md`           |
+| `/deck` command, slide masters, PptxGenJS patterns              | `references/presentations.md`   |
+| AI image generation styles (Renaissance, Bell Labs)             | `references/imagery.md`         |
+| Voice & tone guidelines, anti-patterns, example transformations | `references/voice.md`           |
+| Pre-ship audit checklist                                        | `references/checklist.md`       |
 
-- `${CLAUDE_PLUGIN_ROOT}/templates/` — HTML report templates
-  - `client-report.html` / `labs-report.html` — Standard (browser printing)
-  - `client-report-paged.html` / `labs-report-paged.html` — Paged.js (PDF generation)
-- `${CLAUDE_PLUGIN_ROOT}/assets/fonts/` — Font files
-- `${CLAUDE_PLUGIN_ROOT}/assets/examples/` — HTML implementation examples
+---
+
+## Gotchas
+
+- **Never pure white or pure black** — Use paper tones and ink/void.
+- **Never `font-bold` alone on headings** — Use `font-black` (900) with tight negative tracking.
+- **Body text max 60ch** — Wider columns hurt legibility.
+- **Generous section padding** — Minimum `py-12` (48px), standard `py-16`–`py-24` (64–96px).
+- **Labels are always mono** — `Courier Prime`, uppercase, wide letter-spacing.
+- **Border-radius is subtle** — 4–8px for cards/buttons. Never fully rounded on large containers.
+- **Opacity, not gray shades** — `text-ink/70` not `text-gray-500`.
+- **Warm backgrounds** — Even dark mode uses warm charcoal, not cold black.
+- **Source Serif 4 is display only** — Never for body text or h2–h4. Only cover titles, h1 in paged reports, pull quotes, stat numbers.
+- **Two accents max** — Primary for actions/links, secondary used sparingly for decorative highlights.
+- **Every layout works on mobile** — Default classes are mobile. Always add `md:` / `lg:` variants.
