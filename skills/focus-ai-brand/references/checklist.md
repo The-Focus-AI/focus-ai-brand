@@ -49,11 +49,11 @@ Run through before shipping any Focus.AI branded material.
 ## Layout & Grid
 
 - [ ] Body text never exceeds `max-w-[60ch]`
-- [ ] Content container uses `max-w-6xl` or `max-w-[1400px]` with `mx-auto`
+- [ ] Content container uses `max-w-6xl` or `max-w-[1408px]` with `mx-auto`
 - [ ] Grid uses standard splits: 4/8, 6/6, 4/4/4, 3/9, 8/4
 - [ ] Mobile columns collapse to full width (`col-span-12` or `grid-cols-1`)
 - [ ] Section padding is generous (minimum `py-12`, standard `py-16`–`py-24`)
-- [ ] Container horizontal padding: `px-5 md:px-8`
+- [ ] Container horizontal padding: `px-4 md:px-8`
 - [ ] Asymmetric layout collapses below `lg:` breakpoint
 
 ---
@@ -90,7 +90,7 @@ Run through before shipping any Focus.AI branded material.
 
 ## Spacing & Decoration
 
-- [ ] Spacing uses 4px base unit multiples
+- [ ] Spacing uses 8px base unit multiples (8, 16, 24, 32, 48, 64, 96, 128)
 - [ ] Border-radius is 4–8px (never fully rounded on large containers)
 - [ ] No `rounded-full` on cards or main containers
 - [ ] Geometric decoration (rules, numerals) used sparingly for structure

@@ -22,7 +22,7 @@ Every layout decision starts at the smallest viewport and adds complexity as spa
 - All grid columns collapse to `col-span-12`
 - Asymmetric editorial becomes single column (`grid-cols-1`)
 - Section padding reduces: `py-12 md:py-16 lg:py-24`
-- Horizontal padding tightens: `px-5 md:px-8`
+- Horizontal padding tightens: `px-4 md:px-8`
 - Display type scales down: `text-3xl md:text-5xl lg:text-7xl`
 - Multi-column nav collapses to simplified header
 - Tables get `overflow-x-auto` wrapper
@@ -84,8 +84,8 @@ Use responsive type classes or `clamp()` for smooth scaling:
 <section
   class="py-12 md:py-16 lg:py-24 border-t border-[#d4d3cf] dark:border-[#3d3a36]"
 >
-  <div class="max-w-6xl mx-auto px-5 md:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+  <div class="max-w-6xl mx-auto px-4 md:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
       <!-- Cards -->
     </div>
   </div>
@@ -125,7 +125,7 @@ Collapse to a minimal top bar. Hide secondary links below `md:`. The Focus.AI st
 ```html
 <nav class="border-b border-[#d4d3cf]">
   <div
-    class="max-w-6xl mx-auto px-5 md:px-8 flex items-center justify-between h-14 md:h-16"
+    class="max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between h-14 md:h-16"
   >
     <!-- Brand mark (always visible) -->
     <a
@@ -136,7 +136,7 @@ Collapse to a minimal top bar. Hide secondary links below `md:`. The Focus.AI st
     </a>
 
     <!-- Desktop nav (hidden on mobile) -->
-    <div class="hidden md:flex items-center gap-6">
+    <div class="hidden md:flex items-center gap-8">
       <a
         href="#"
         class="text-sm text-[#161616]/60 hover:text-[#161616] transition-colors"
@@ -160,7 +160,7 @@ Collapse to a minimal top bar. Hide secondary links below `md:`. The Focus.AI st
 Always wrap tables in a horizontal scroll container:
 
 ```html
-<div class="overflow-x-auto -mx-5 px-5 md:mx-0 md:px-0">
+<div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
   <table class="w-full min-w-[640px] text-sm">
     ...
   </table>
@@ -224,7 +224,7 @@ Before shipping, verify at 375px (mobile), 768px (tablet), and 1280px (desktop):
 - [ ] All grid columns have `col-span-12` or `grid-cols-1` mobile fallback
 - [ ] Heading type scales down (`text-3xl md:text-5xl lg:text-7xl`)
 - [ ] Section padding reduces (`py-12 md:py-16 lg:py-24`)
-- [ ] Horizontal padding reduces (`px-5 md:px-8`)
+- [ ] Horizontal padding reduces (`px-4 md:px-8`)
 - [ ] All tables wrapped in `overflow-x-auto`
 - [ ] All interactive elements at least 44×44px on mobile
 - [ ] Desktop-only nav links hidden below `md:`

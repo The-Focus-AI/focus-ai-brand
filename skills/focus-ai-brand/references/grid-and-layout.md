@@ -14,7 +14,7 @@ Focus.AI uses two complementary grid systems depending on context:
 Standard Swiss-style grid with 8px-multiple gaps.
 
 ```html
-<div class="max-w-6xl mx-auto px-5 md:px-8">
+<div class="max-w-6xl mx-auto px-4 md:px-8">
   <div class="grid grid-cols-12 gap-4 md:gap-8">
     <!-- Full width -->
     <div class="col-span-12">...</div>
@@ -41,7 +41,7 @@ Standard Swiss-style grid with 8px-multiple gaps.
 - Use `gap-4 md:gap-8` (16px → 32px)
 - Max content width: `max-w-6xl` (1152px) or `max-w-7xl` (1280px)
 - No fractional splits (avoid 5/7). Use: 4/8, 6/6, 4/4/4, 3/9, 8/4
-- Container padding: `px-5 md:px-8` (20px → 32px)
+- Container padding: `px-4 md:px-8` (16px → 32px)
 
 ---
 
@@ -55,7 +55,7 @@ The signature Focus.AI Client layout — inspired by magazine editorial design. 
 │  Label       │  Content                   │  Marginalia     │
 │  Gutter      │  Main                      │  Gutter         │
 └─────────────────────────────────────────────────────────────┘
-      Gap: 3rem (48px)         Max-width: 1400px
+      Gap: 32px (gap-8)         Max-width: 1408px
 ```
 
 ### CSS Implementation
@@ -64,10 +64,10 @@ The signature Focus.AI Client layout — inspired by magazine editorial design. 
 .asymmetric-container {
   display: grid;
   grid-template-columns: 140px 1fr 200px;
-  gap: 3rem;
-  max-width: 1400px;
+  gap: 2rem; /* 32px — on the 8px grid */
+  max-width: 1408px; /* 176 × 8 */
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 2rem; /* 32px */
   align-items: start;
 }
 
@@ -79,8 +79,8 @@ The signature Focus.AI Client layout — inspired by magazine editorial design. 
 @media (max-width: 1024px) {
   .asymmetric-container {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0 1.25rem;
+    gap: 1rem; /* 16px */
+    padding: 0 1rem; /* 16px */
   }
 }
 ```
@@ -88,9 +88,9 @@ The signature Focus.AI Client layout — inspired by magazine editorial design. 
 ### Tailwind Implementation
 
 ```html
-<section class="py-12 md:py-28 px-5 md:px-8">
+<section class="py-12 md:py-24 lg:py-32 px-4 md:px-8">
   <div
-    class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[140px_1fr_200px] gap-6 lg:gap-12 items-start"
+    class="max-w-[1408px] mx-auto grid grid-cols-1 lg:grid-cols-[144px_1fr_192px] gap-4 lg:gap-8 items-start"
   >
     <!-- Label gutter -->
     <div class="pt-1">
@@ -138,25 +138,31 @@ Generous whitespace between sections is fundamental. Swiss principle: space is s
 
 ```html
 <!-- Standard section -->
-<section class="py-12 md:py-24 lg:py-28">
-  <div class="max-w-6xl mx-auto px-5 md:px-8">...</div>
+<section class="py-12 md:py-16 lg:py-24">
+  <div class="max-w-6xl mx-auto px-4 md:px-8">...</div>
+</section>
+
+<!-- Editorial section (generous) -->
+<section class="py-16 md:py-24 lg:py-32">
+  <div class="max-w-6xl mx-auto px-4 md:px-8">...</div>
 </section>
 
 <!-- Section with top border divider -->
 <section class="py-12 md:py-24 border-t border-[#d4d3cf]">
-  <div class="max-w-6xl mx-auto px-5 md:px-8">...</div>
+  <div class="max-w-6xl mx-auto px-4 md:px-8">...</div>
 </section>
 ```
 
 ### Spacing Scale for Sections
 
-| Context                    | Mobile         | Tablet         | Desktop                    |
-| -------------------------- | -------------- | -------------- | -------------------------- |
-| Section padding (vertical) | `py-12` (48px) | `py-16` (64px) | `py-24`–`py-28` (96–112px) |
-| Container padding (horiz)  | `px-5` (20px)  | `px-8` (32px)  | `px-8` (32px)              |
-| Between cards/elements     | `gap-6` (24px) | `gap-8` (32px) | `gap-8` (32px)             |
-| Between heading and body   | `mb-4` (16px)  | `mb-6` (24px)  | `mb-6` (24px)              |
-| Between major blocks       | `mt-8` (32px)  | `mt-12` (48px) | `mt-12` (48px)             |
+| Context                    | Mobile         | Tablet         | Desktop         |
+| -------------------------- | -------------- | -------------- | --------------- |
+| Section padding (vertical) | `py-12` (48px) | `py-16` (64px) | `py-24` (96px)  |
+| Editorial padding          | `py-16` (64px) | `py-24` (96px) | `py-32` (128px) |
+| Container padding (horiz)  | `px-4` (16px)  | `px-8` (32px)  | `px-8` (32px)   |
+| Between cards/elements     | `gap-4` (16px) | `gap-8` (32px) | `gap-8` (32px)  |
+| Between heading and body   | `mb-4` (16px)  | `mb-6` (24px)  | `mb-6` (24px)   |
+| Between major blocks       | `mt-8` (32px)  | `mt-12` (48px) | `mt-12` (48px)  |
 
 ---
 
@@ -257,7 +263,7 @@ The signature "floating document" effect:
 | Lead paragraph             | 52ch      | `max-w-[52ch]`   |
 | Content main column        | 740px     | `max-w-[740px]`  |
 | Card grid container        | 1152px    | `max-w-6xl`      |
-| Editorial container        | 1400px    | `max-w-[1400px]` |
+| Editorial container        | 1408px    | `max-w-[1408px]` |
 | Full page container (Labs) | 1280px    | `max-w-7xl`      |
 
 **Never let body text exceed 60ch.** Wider columns destroy legibility.

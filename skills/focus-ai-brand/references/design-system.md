@@ -248,28 +248,29 @@ Ghost:   bg-[#0e3b46]/10     → very subtle hover backgrounds
 
 ## Spacing System
 
-Base unit: **4px** (Tailwind default scale).
+Base unit: **8px**. Every spacing value is a multiple of 8. This creates a consistent vertical rhythm across all elements — the same discipline as the Swiss grid, applied to Focus.AI's editorial layouts.
 
-| Token | Value | Usage                               |
-| ----- | ----- | ----------------------------------- |
-| 1     | 4px   | Tight inline spacing                |
-| 2     | 8px   | Button padding, list gaps           |
-| 3     | 12px  | Icon-to-text spacing                |
-| 4     | 16px  | Default component spacing           |
-| 6     | 24px  | Section internal spacing            |
-| 8     | 32px  | Between major elements              |
-| 12    | 48px  | Section padding (mobile)            |
-| 16    | 64px  | Section padding (desktop)           |
-| 24    | 96px  | Large section padding               |
-| 28    | 112px | Editorial section padding (desktop) |
+| Token | Value | Tailwind | Usage                      |
+| ----- | ----- | -------- | -------------------------- |
+| 1     | 8px   | `gap-2`  | Tight inline gaps          |
+| 2     | 16px  | `gap-4`  | Component internal spacing |
+| 3     | 24px  | `gap-6`  | Between related elements   |
+| 4     | 32px  | `gap-8`  | Between components         |
+| 6     | 48px  | `py-12`  | Section padding (mobile)   |
+| 8     | 64px  | `py-16`  | Section padding (tablet)   |
+| 12    | 96px  | `py-24`  | Section padding (desktop)  |
+| 16    | 128px | `py-32`  | Generous section padding   |
+
+The scale doubles cleanly: 8 → 16 → 32 → 64 → 128. Intermediate steps (24, 48, 96) fill in at 1.5× intervals. No odd values.
 
 ### Section Spacing
 
 | Context                      | Desktop         | Mobile         |
 | ---------------------------- | --------------- | -------------- |
-| Between sections             | 112px (`py-28`) | 48px (`py-12`) |
-| Container horizontal padding | 32px (`px-8`)   | 20px (`px-5`)  |
-| Between major elements       | 32px (`gap-8`)  | 24px (`gap-6`) |
+| Between sections             | 96px (`py-24`)  | 48px (`py-12`) |
+| Container horizontal padding | 32px (`px-8`)   | 16px (`px-4`)  |
+| Between major elements       | 32px (`gap-8`)  | 16px (`gap-4`) |
+| Editorial section padding    | 128px (`py-32`) | 64px (`py-16`) |
 
 ---
 

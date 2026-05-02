@@ -78,22 +78,22 @@ Ghosted:  text-[ink]/20        → disabled, placeholder
 
 ### Spacing
 
-Base unit: 4px. Standard gaps at 8px multiples.
+Base unit: **8px**. Every spacing value is a multiple of 8.
 
-| Context | Value    | Usage                            |
-| ------- | -------- | -------------------------------- |
-| Tight   | 8px      | Inline gaps, icon spacing        |
-| Default | 16px     | Component internal spacing       |
-| Between | 32px     | Between components               |
-| Section | 48–64px  | Between major sections (mobile)  |
-| Section | 96–128px | Between major sections (desktop) |
+| Context | Value    | Usage                           |
+| ------- | -------- | ------------------------------- |
+| Tight   | 8px      | Inline gaps, icon spacing       |
+| Default | 16px     | Component internal spacing      |
+| Between | 32px     | Between components              |
+| Section | 48–64px  | Section padding (mobile/tablet) |
+| Section | 96–128px | Section padding (desktop)       |
 
 ### Layout
 
 Two layout modes:
 
 1. **12-column grid** — General purpose, Tailwind `grid grid-cols-12 gap-8`
-2. **Asymmetric editorial** — `[140px label] [1fr content, max 740px] [200px marginalia]`
+2. **Asymmetric editorial** — `[144px label] [1fr content, max 740px] [192px marginalia]`
 
 Body text max width: `60ch`. Never wider.
 

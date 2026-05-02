@@ -206,7 +206,7 @@ All components use Inter (sans), Courier Prime (mono), and the brand palette. Ex
 ```html
 <nav class="border-b border-[#d4d3cf] bg-[#faf9f6]">
   <div
-    class="max-w-[1400px] mx-auto px-5 md:px-8 flex items-center justify-between h-16"
+    class="max-w-[1408px] mx-auto px-4 md:px-8 flex items-center justify-between h-16"
   >
     <a
       href="/"
@@ -367,9 +367,9 @@ All components use Inter (sans), Courier Prime (mono), and the brand palette. Ex
 ### Client Hero
 
 ```html
-<section class="py-12 md:py-28 px-5 md:px-8">
+<section class="py-12 md:py-24 lg:py-32 px-4 md:px-8">
   <div
-    class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[140px_1fr_200px] gap-6 lg:gap-12 items-start"
+    class="max-w-[1408px] mx-auto grid grid-cols-1 lg:grid-cols-[144px_1fr_192px] gap-4 lg:gap-8 items-start"
   >
     <div class="pt-1">
       <span
@@ -406,7 +406,7 @@ All components use Inter (sans), Courier Prime (mono), and the brand palette. Ex
 ### Labs Hero
 
 ```html
-<section class="py-16 md:py-24 px-5 md:px-8 bg-[#e8e6df]">
+<section class="py-16 md:py-24 px-4 md:px-8 bg-[#e8e6df]">
   <div
     class="max-w-7xl mx-auto bg-[#f3f2ea] border border-[#1a1a1a] shadow-[10px_10px_0px_0px_rgba(0,0,0,0.1)] p-8 md:p-16"
   >
@@ -466,7 +466,7 @@ const result = await focus.analyze(data);
 ```html
 <!-- Client -->
 <blockquote
-  class="border-l-[3px] border-[#0e3b46] bg-[#0e3b46]/[0.03] px-5 py-4 my-6 rounded-r-md"
+  class="border-l-[3px] border-[#0e3b46] bg-[#0e3b46]/[0.03] px-4 py-4 my-6 rounded-r-md"
 >
   <p class="text-base italic text-[#4a4a4a] leading-relaxed">
     Quote text here.
@@ -475,7 +475,7 @@ const result = await focus.analyze(data);
 
 <!-- Labs -->
 <blockquote
-  class="border border-[#1a1a1a] border-l-4 border-l-[#0055aa] bg-white px-5 py-4 my-6"
+  class="border border-[#1a1a1a] border-l-4 border-l-[#0055aa] bg-white px-4 py-4 my-6"
 >
   <p class="text-base text-[#1a1a1a] leading-relaxed">Quote text here.</p>
 </blockquote>
