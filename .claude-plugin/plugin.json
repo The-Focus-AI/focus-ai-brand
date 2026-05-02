@@ -1,0 +1,9 @@
+{
+  "name": "focus-ai-brand",
+  "version": "2.0.0",
+  "description": "Focus.AI design system — Swiss grid rigor meets Focus.AI brand identity. Client + Labs sub-brands, Tailwind components, paged.js PDF reports, PptxGenJS presentations, voice guidelines, and 70+ item pre-ship checklist.",
+  "author": {
+    "name": "The Focus AI"
+  },
+  "skills": ["./skills/focus-ai-brand"]
+}
