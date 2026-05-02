@@ -1,97 +1,87 @@
-# Focus.AI Brand Plugin for Claude Code
+# Focus.AI Design System
 
-A Claude Code skill plugin that applies Focus.AI brand guidelines to documents, presentations, websites, and other materials.
+A comprehensive design system skill for AI coding agents. Combines Swiss International Style structural rigor with Focus.AI brand identity across two sub-brands.
 
-## Overview
+**Version 2.0.0**
 
-This plugin provides comprehensive brand guidelines for two Focus.AI sub-brands:
+## Sub-Brands
 
-- **Focus.AI Client**: For services, proposals, client work, and product marketing
-- **Focus.AI Labs**: For research, experiments, blog posts, and open source projects
-
-## Installation
-
-Install this plugin in Claude Code by adding it to your plugins directory:
-
-```bash
-# Clone the repository
-git clone https://github.com/The-Focus-AI/focus-ai-brand.git
-
-# Move to your Claude Code plugins directory
-mv focus-ai-brand ~/.claude/plugins/
-```
-
-## Usage
-
-The skill automatically triggers when you:
-
-- Request "focus.ai style" or "focus brand" materials
-- Ask for "labs style" content
-- Create branded Focus.AI materials
-
-Claude will automatically read the appropriate design system files and apply the correct brand guidelines based on your context.
+| Brand      | Aesthetic                 | Accent Colors                             | Use For                               |
+| ---------- | ------------------------- | ----------------------------------------- | ------------------------------------- |
+| **Client** | Editorial magazine        | Petrol `#0e3b46` + Vermilion `#c3471d`    | Services, proposals, client work      |
+| **Labs**   | Bell Labs research report | Rand-Blue `#0055aa` + Alert-Red `#d93025` | Research, experiments, public content |
 
 ## What's Included
 
-### Design Systems
+### Skill (`skills/focus-ai-brand/`)
 
-- `THEFOCUS_DESIGN_SYSTEM.md` - Shared brand foundations (typography, principles, quality standards)
-- `THEFOCUS_CLIENT_DESIGN_SYSTEM.md` - Client brand specifics (magazine/editorial aesthetic)
-- `THEFOCUS_LABS_DESIGN_SYSTEM.md` - Labs brand specifics (research/technical aesthetic)
+| File                            | Purpose                                                        |
+| ------------------------------- | -------------------------------------------------------------- |
+| `SKILL.md`                      | Entry point — principles, quick reference, file routing        |
+| `references/design-system.md`   | Colors, type scale, opacity hierarchy, spacing, dark mode      |
+| `references/grid-and-layout.md` | 12-column grid + asymmetric editorial layout                   |
+| `references/responsive.md`      | Mobile-first breakpoints, fluid type, touch targets            |
+| `references/components.md`      | Tailwind component patterns — buttons, cards, nav, forms, hero |
+| `references/tailwind-config.md` | Paste-ready Tailwind v3/v4 configs, Astro integration          |
+| `references/print.md`           | `/report` command, paged.js smart page breaks, PDF workflow    |
+| `references/presentations.md`   | `/deck` command, PptxGenJS slide masters, slide patterns       |
+| `references/imagery.md`         | AI image generation styles (5 Client + 4 Labs)                 |
+| `references/voice.md`           | Voice & tone, anti-patterns, example transformations           |
+| `references/checklist.md`       | 70+ item pre-ship audit checklist                              |
+
+### Templates (`templates/`)
+
+| File                       | Purpose                                                     |
+| -------------------------- | ----------------------------------------------------------- |
+| `client-report.html`       | Client brand — standard browser printing                    |
+| `client-report-paged.html` | Client brand — paged.js with running headers + page numbers |
+| `labs-report.html`         | Labs brand — standard browser printing                      |
+| `labs-report-paged.html`   | Labs brand — paged.js with running headers + page numbers   |
 
 ### Assets
 
-- **Fonts** (`assets/fonts/`) - Brand typography files including:
-  - Cina GEO (Regular, Medium, Bold, Light)
-  - Hypertext Mono (Light, Medium, Bold)
-  - Ghostly Gothic Test (Light)
+- `assets/fonts/` — Brand typography: CinaGEO, Hypertext Mono, Ghostly Gothic
+- `assets/examples/` — HTML implementation examples (landing page, hero, cards)
+- `output/` — Renaissance visual style reference images
 
-- **Examples** (`assets/examples/`) - HTML implementation examples:
-  - Full landing page
-  - Hero sections
-  - Card components
+## Design Principles
 
-## Brand Selection Guide
+1. **Grid first** — 12-column grid or asymmetric editorial. 8px base unit.
+2. **Mobile first** — Design for 320px, expand with breakpoints.
+3. **Whitespace is structure** — Generous spacing is the design, not waste.
+4. **Opacity creates hierarchy** — Never introduce different hues for text weight.
+5. **Two accents maximum** — Primary for CTAs, secondary used sparingly.
+6. **Clarity over decoration** — Every element earns its place.
 
-| Context | Brand to Use |
-|---------|--------------|
-| Client proposals, case studies, service pages | **Client** brand |
-| Research reports, experiments, technical blogs | **Labs** brand |
+## Typography
 
-**Rule of thumb**: Client work or selling services → Client brand. Sharing learnings or exploring → Labs brand.
+| Family  | Font           | Role                                          |
+| ------- | -------------- | --------------------------------------------- |
+| Display | Source Serif 4 | Cover titles, H1 (paged reports), pull quotes |
+| Sans    | Inter          | Headings, body text, UI                       |
+| Mono    | Courier Prime  | Labels, metadata, code                        |
 
-## Quick Difference Summary
-
-| Aspect | Client | Labs |
-|--------|--------|------|
-| **Aesthetic** | Magazine / editorial | Bell Labs / RAND Corporation |
-| **Primary accent** | Petrol `#0e3b46` | Rand-Blue `#0055aa` |
-| **Secondary accent** | Vermilion `#c3471d` | Alert-Red `#d93025` |
-| **Voice** | Confident, professional, clear | Curious, wry, generous |
-
-## Development
-
-This is a Claude Code plugin following the standard plugin structure:
+## Commands
 
 ```
-focus-ai-brand/
-├── .claude-plugin/
-│   └── plugin.json          # Plugin manifest
-├── skills/
-│   └── focus-ai-brand.md    # Main skill definition
-├── assets/
-│   ├── fonts/               # Brand typography
-│   └── examples/            # HTML examples
-├── THEFOCUS_DESIGN_SYSTEM.md
-├── THEFOCUS_CLIENT_DESIGN_SYSTEM.md
-├── THEFOCUS_LABS_DESIGN_SYSTEM.md
-└── README.md
+# Generate PDF report
+/report file:./document.md style:labs
+/report file:./proposal.md style:client output:./proposal.pdf
+
+# Generate presentation
+/deck file:./content.md style:client output:./presentation.pptx
+```
+
+## Installation
+
+### As a pi skill
+
+Copy `skills/focus-ai-brand/` to your project's `.pi/skills/` directory:
+
+```bash
+cp -r skills/focus-ai-brand /path/to/your/project/.pi/skills/
 ```
 
 ## License
 
 Copyright The Focus AI. All rights reserved.
-
-## Support
-
-For issues or questions about this plugin, please contact The Focus AI team.
